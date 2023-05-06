@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  mongo:
+    image: mongo:6.0
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - "$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/"
+    command: mongod
+  rabbitmq:
+    build: ./AMQP-broker
+    ports:
+      - 15671:15671
+      - 15672:15672
+      - 15692:15692
+      - 25672:25672
+      - 5672:5672
+    
