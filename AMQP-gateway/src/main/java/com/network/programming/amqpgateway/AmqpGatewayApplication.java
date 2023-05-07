@@ -12,13 +12,6 @@ public class AmqpGatewayApplication {
         SpringApplication.run(AmqpGatewayApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner runner(IotDataRepository iotDataRepository) {
-        return args -> {
-            IotJava iotJava = new IotJava();
-        };
-    }
-
 
 }
 
