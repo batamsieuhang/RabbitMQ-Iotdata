@@ -9,7 +9,7 @@ import java.util.List;
 public class IOTMessage implements MessageListener {
     @Override
     public void onMessage(Message message) {
-        System.out.println("Message["+new String(message.getBody())+"]");
+        System.out.println(new String(message.getBody()));
     }
 
     @Override
