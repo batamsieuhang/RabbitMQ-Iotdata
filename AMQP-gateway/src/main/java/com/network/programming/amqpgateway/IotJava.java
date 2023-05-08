@@ -1,31 +1,31 @@
 package com.network.programming.amqpgateway;
 
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@Document(collection = "iot_data")
+@Document(collection = "house")
 public class IotJava {
 
-    @MongoId
+    @Id
     private String id;
 
     @DateTimeFormat
     private Date iotDate;
 
     private long unixTime;
-    private float watValue;
+    private double watValue;
 
     private int workLoad;
     private int plugId;
     private int houseHoldId;
     private int houseId;
 
-    public IotJava(Date iotDate, long unixTime, float watValue, int workLoad, int plugId, int houseHoldId, int houseId) {
-        this.iotDate = iotDate;
+    public IotJava(long unixTime, double watValue, int workLoad, int plugId, int houseHoldId, int houseId) {
         this.unixTime = unixTime;
         this.watValue = watValue;
         this.workLoad = workLoad;
@@ -50,7 +50,7 @@ public class IotJava {
         this.unixTime = unixTime;
     }
 
-    public float getWatValue() {
+    public double getWatValue() {
         return watValue;
     }
 
