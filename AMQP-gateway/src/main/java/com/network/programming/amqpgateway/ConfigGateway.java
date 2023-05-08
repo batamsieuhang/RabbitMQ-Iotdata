@@ -6,11 +6,15 @@ import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.MessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ConfigGateway {
+
+    @Autowired
+    IOTMessage iotMessage;
     private static final String My_Queue = "IOTQueue";
     @Bean
     Queue myQueue() {
@@ -44,7 +48,7 @@ public class ConfigGateway {
         SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
         simpleMessageListenerContainer.setQueues(myQueue());
         simpleMessageListenerContainer.setConnectionFactory(connectionFactory());
-        simpleMessageListenerContainer.setMessageListener(new IOTMessage());
+        simpleMessageListenerContainer.setMessageListener(iotMessage);
 
         return simpleMessageListenerContainer;
     }
