@@ -12,21 +12,21 @@ import java.util.List;
 public class CsvProcessor {
 
     public static void main(String[] args) throws IOException {
-        String csvFilePath = "/home/mr8/project/network-programming-group6/AMQP-node/src/main/resources/house-0.csv";
+        String csvFilePath = "/home/mr8/project/network-programming-group6/AMQP-node/src/main/resources/house-test.csv";
         CSVReader reader = new CSVReader(new FileReader(csvFilePath));
 
         String[] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             int id = Integer.parseInt(nextLine[0]);
             long unixTime = Long.parseLong(nextLine[1]);
-            double value = Double.parseDouble(nextLine[2]);
+            double watValue = Double.parseDouble(nextLine[2]);
             int workLoad = Integer.parseInt(nextLine[3]);
             int plugId = Integer.parseInt(nextLine[4]);
             int houseHoldId = Integer.parseInt(nextLine[5]);
             int houseId = Integer.parseInt(nextLine[6]);
 
-            String msg = String.format("{\"id\": %d, \"unixTime\": %d, \"value\": %.3f, \"workLoad\": %d, \"plugId\": %d, \"houseHoldId\": %d, \"houseId\": %d}",
-                    id, unixTime, value, workLoad, plugId, houseHoldId, houseId);
+            String msg = String.format("{\"id\": %d, \"unixTime\": %d, \"watValue\": %.3f, \"workLoad\": %d, \"plugId\": %d, \"houseHoldId\": %d, \"houseId\": %d}",
+                    id, unixTime, watValue, workLoad, plugId, houseHoldId, houseId);
 
             Gson gson = new Gson();
             JsonObject jsonObject = gson.fromJson(msg, JsonObject.class);

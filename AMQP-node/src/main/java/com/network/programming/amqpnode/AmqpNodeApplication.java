@@ -28,14 +28,14 @@ public class AmqpNodeApplication implements CommandLineRunner {
         while ((nextLine = reader.readNext()) != null) {
             int id = Integer.parseInt(nextLine[0]);
             long unixTime = Long.parseLong(nextLine[1]);
-            double value = Double.parseDouble(nextLine[2]);
+            double watValue = Double.parseDouble(nextLine[2]);
             int workLoad = Integer.parseInt(nextLine[3]);
             int plugId = Integer.parseInt(nextLine[4]);
             int houseHoldId = Integer.parseInt(nextLine[5]);
             int houseId = Integer.parseInt(nextLine[6]);
 
-            String msg = String.format("{\"id\": %d, \"unixTime\": %d, \"value\": %.3f, \"workLoad\": %d, \"plugId\": %d, \"houseHoldId\": %d, \"houseId\": %d}",
-                    id, unixTime, value, workLoad, plugId, houseHoldId, houseId);
+            String msg = String.format("{\"id\": %d, \"unixTime\": %d, \"watValue\": %.3f, \"workLoad\": %d, \"plugId\": %d, \"houseHoldId\": %d, \"houseId\": %d}",
+                    id, unixTime, watValue, workLoad, plugId, houseHoldId, houseId);
 
 
             iotData.convertAndSend("IOT_data","IOT_data",msg);
