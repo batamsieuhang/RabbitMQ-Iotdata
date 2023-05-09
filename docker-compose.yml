@@ -9,8 +9,11 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_DATABASE: iot_data
+
     volumes:
-      - "$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/"
+      - ./mongo-entrypoint/:/docker-entrypoint-initdb.d/
+    
     command: mongod
   rabbitmq:
     build: ./AMQP-broker
