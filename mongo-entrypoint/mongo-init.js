@@ -1,9 +1,10 @@
 
 db = db.getSiblingDB('iot_data'); 
 
-db.house.insertOne({"id": 1332111111,
+db.house.insertOne({
     "unixTime": 0,
-    "value": 0,
+    
+    "watValue": 0,
     "workLoad": 0,
     "plugId": 0,
     "houseHoldId": 1,
