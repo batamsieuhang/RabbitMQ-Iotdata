@@ -25,6 +25,7 @@ public class IotData {
     private int houseId;
 
     public IotData(long unixTime, double watValue, int workLoad, int plugId, int houseHoldId, int houseId) {
+        this.iotDate = new Date(unixTime*1000);
         this.unixTime = unixTime;
         this.watValue = watValue;
         this.workLoad = workLoad;
