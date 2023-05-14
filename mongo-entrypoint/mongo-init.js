@@ -13,7 +13,7 @@ db.house.insertOne({
 db.createUser(
     {
         user: "iotUser",
-        pwd: "Ahihi123@",
+        pwd: "Ahihi123",
         roles: [ { role: "readWrite", db: "iot_data"} ],
     }
 );
