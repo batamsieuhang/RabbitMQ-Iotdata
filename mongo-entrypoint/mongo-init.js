@@ -16,5 +16,5 @@ db.createUser(
         pwd: "Ahihi123@",
         roles: [ { role: "readWrite", db: "iot_data"} ],
     }
-)
+);
 
