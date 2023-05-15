@@ -11,3 +11,6 @@
 /dataSources.local.xml
 
 idea/
+target/
+.idea/
+.iede
