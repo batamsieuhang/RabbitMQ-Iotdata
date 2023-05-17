@@ -23,7 +23,12 @@ public class IOTMessage implements MessageListener {
         IotData dataObject = parseSensorData(msg);
 
         // Save data object to MongoDB using repository
-        myMongoRepository.save(dataObject);
+        try {
+            myMongoRepository.save(dataObject);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
     }
 

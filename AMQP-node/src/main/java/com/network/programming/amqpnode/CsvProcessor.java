@@ -12,7 +12,7 @@ import java.util.List;
 public class CsvProcessor {
 
     public static void main(String[] args) throws IOException {
-        String csvFilePath = "/home/mr8/project/network-programming-group6/AMQP-node/src/main/resources/house-test.csv";
+        String csvFilePath = "C:\\Users\\darkarchorn\\Desktop\\LTM\\network-programming-group6\\AMQP-node\\src\\main\\resources\\house-0.csv";
         CSVReader reader = new CSVReader(new FileReader(csvFilePath));
 
         String[] nextLine;
