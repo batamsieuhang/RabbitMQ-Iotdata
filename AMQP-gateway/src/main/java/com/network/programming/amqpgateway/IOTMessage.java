@@ -43,12 +43,6 @@ public class IOTMessage implements MessageListener {
         return sampleData;
     }
 
-
-
-
-
-
-
     @Override
     public void containerAckMode(AcknowledgeMode mode) {
         MessageListener.super.containerAckMode(mode);

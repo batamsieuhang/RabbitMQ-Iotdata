@@ -1,4 +1,4 @@
-package com.network.programming.amqpnode;
+package amqpnode;
 
 import com.opencsv.CSVReader;
 import com.rabbitmq.client.*;
