@@ -26,7 +26,7 @@ public class AmqpNodeApplication {
             channel.queueDeclare(QUEUE_NAME, true, false, false, null);
             channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, ROUTING_KEY);
 
-            String csvFilePath = "C:\\Users\\darkarchorn\\Desktop\\LTM\\network-programming-group6\\AMQP-node\\src\\main\\resources\\house-0.csv";
+            String csvFilePath = "/home/mr8/project/network-programming-group6/AMQP-gateway/src/main/resources/house-0.csv";
             CSVReader reader = new CSVReader(new FileReader(csvFilePath));
 
             String[] nextLine;
@@ -34,6 +34,7 @@ public class AmqpNodeApplication {
             long messageCount = 0;
 
             while ((nextLine = reader.readNext()) != null) {
+                 if ((Integer.parseInt(nextLine[5])==1) && (Integer.parseInt(nextLine[4])==0)&&(Integer.parseInt(nextLine[3])==1)) {
                 int id = Integer.parseInt(nextLine[0]);
                 long unixTime = Long.parseLong(nextLine[1]);
                 double watValue = Double.parseDouble(nextLine[2]);
@@ -46,6 +47,9 @@ public class AmqpNodeApplication {
                         id, unixTime, watValue, workLoad, plugId, houseHoldId, houseId);
 
                 channel.basicPublish(EXCHANGE_NAME, ROUTING_KEY, null, msg.getBytes("UTF-8"));
+                Thread.sleep(500);
+                 }
+                
 
                 messageCount++;
 
