@@ -23,11 +23,11 @@ function App() {
       axios.get(`http://192.168.153.135:8080/api/v1/iotdata`).then((res) => {
         console.log(res.data)
         setUserData({
-          labels: res.data.slice(500).map((item) => item.iotDate),
+          labels: res.data.slice(-500).map((item) => item.iotDate),
           datasets: [
             {
               label: "Wattege",
-              data: res.data.slice(500).map(item => item.watValue),
+              data: res.data.slice(-500).map(item => item.watValue),
               backgroundColor: ["#99FFFF"],
               borderColor: ["black"],
             }
