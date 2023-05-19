@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.chart {
+  width: 90%;
+  padding: 20px;
+}
+
+.button1 {
+  width: 30%;
+  margin-top: 100px;
+}
