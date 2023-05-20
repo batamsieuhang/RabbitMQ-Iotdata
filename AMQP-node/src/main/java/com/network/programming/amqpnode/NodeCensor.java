@@ -69,8 +69,9 @@ public class NodeCensor {
                 String routingKey = getRoutingKeyByPlugId(plugId);
                 iotData.convertAndSend("IOT_data", routingKey, msg);
                 System.out.println(msg);
-                Thread.sleep(500);
+                Thread.sleep(1000);
             }
+
         }
     }
 }
