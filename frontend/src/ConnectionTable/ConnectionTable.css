@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    width: 50%;
+}
+.tableStyle {
+    border: none;
+    width: 50%;
+    text-align: center;
+}
+.tableStyle th {
+    background-color: #cad8fa;
+    padding: 5px;
+}
+.tableStyle td {
+    background-color: #f0e7da;
+    padding: 5px;
+}

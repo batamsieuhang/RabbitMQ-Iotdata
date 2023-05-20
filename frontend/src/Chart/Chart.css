@@ -1,0 +1,27 @@
+.container {
+    text-align: center;
+    display: flex;
+}
+
+.form {
+    margin-top: 100px;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .idInput {
+        width: 120px;
+        padding-left: 5px;
+    }
+
+    .draw {
+        width: 80px;
+        margin-top: 10px;
+    }
+}
+
+.chart {
+    width: 85%;
+    padding: 20px;
+}
