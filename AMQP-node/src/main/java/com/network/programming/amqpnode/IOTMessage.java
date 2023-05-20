@@ -2,6 +2,11 @@ package com.network.programming.amqpnode;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.springframework.amqp.core.AcknowledgeMode;
+
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -11,14 +16,16 @@ import org.w3c.dom.Node;
 
 import java.io.IOException;
 import java.util.List;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class IOTMessage implements MessageListener {
 
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
+    private final ExecutorService executorService = Executors.newCachedThreadPool();
 
     @Override
     public void onMessage(Message message) {
@@ -27,22 +34,17 @@ public class IOTMessage implements MessageListener {
         System.out.println(msg);
         if (msg.startsWith("Enable ")) {
             int plugId = Integer.parseInt(msg.substring(7));
-            try {
-                nodeCensor.processData(rabbitTemplate, plugId);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            executorService.submit(() -> {
+                try {
+                    nodeCensor.processData(rabbitTemplate, plugId);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }
     }
-
-
-
-
-
-
-
 
     @Override
     public void containerAckMode(AcknowledgeMode mode) {
@@ -58,6 +60,5 @@ public class IOTMessage implements MessageListener {
     public void onMessageBatch(List<Message> messages) {
         MessageListener.super.onMessageBatch(messages);
     }
-
-
 }
+
