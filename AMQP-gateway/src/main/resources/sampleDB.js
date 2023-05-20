@@ -10,3 +10,10 @@ iot_data = {
 }
 
 
+iot_plug_censor = {
+    "id": "1",
+    "name": 1,
+    "status": true
+}
+
+

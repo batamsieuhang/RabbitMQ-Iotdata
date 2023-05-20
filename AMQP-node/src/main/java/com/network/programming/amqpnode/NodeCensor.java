@@ -55,7 +55,7 @@ public class NodeCensor {
         String[] nextLine;
         while ((nextLine = reader.readNext()) != null) {
 
-            if ((Integer.parseInt(nextLine[5]) == 1) && (Integer.parseInt(nextLine[4]) == plugId) && (Integer.parseInt(nextLine[3]) == 1)) {
+            if ((Integer.parseInt(nextLine[5]) == 1) && (Integer.parseInt(nextLine[4]) == plugId) && (Integer.parseInt(nextLine[3]) == 1)&&(Double.parseDouble(nextLine[2])!=0)) {
                 int id = Integer.parseInt(nextLine[0]);
                 long unixTime = Long.parseLong(nextLine[1]);
                 double watValue = Double.parseDouble(nextLine[2]);

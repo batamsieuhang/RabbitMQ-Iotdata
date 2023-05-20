@@ -10,6 +10,12 @@ db.house.insertOne({
     "houseHoldId": 1,
     "houseId": 0});
 
+db.censor.insertOne({
+    "id": "2",
+    "name": 2,
+    "status": "on",
+     "have_turn_on":"no"});
+
 db.createUser(
     {
         user: "iotUser",
