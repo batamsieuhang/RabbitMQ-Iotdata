@@ -11,8 +11,8 @@ db.house.insertOne({
     "houseId": 0});
 
 db.censor.insertOne({
-    "id": "2",
-    "name": 2,
+    "id": "99",
+    "name": 99,
     "status": "on",
      "have_turn_on":"no"});
 
