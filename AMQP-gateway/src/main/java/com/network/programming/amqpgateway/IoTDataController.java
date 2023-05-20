@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 public class IoTDataController {
@@ -18,7 +20,12 @@ public class IoTDataController {
 
     @GetMapping("/iotdata")
     public ResponseEntity findAllData() {
-        return new ResponseEntity(iotDataRepository.findAll(),HttpStatusCode.valueOf(200));
+        return new ResponseEntity(iotDataRepository.findAll(), HttpStatusCode.valueOf(200));
     }
 
+    @GetMapping("/iotdata/{plugId}")
+    public ResponseEntity findDataByPlugId(@PathVariable int plugId) {
+        List<IotData> data = iotDataRepository.findByPlugId(plugId);
+        return new ResponseEntity(data, HttpStatusCode.valueOf(200));
+    }
 }
