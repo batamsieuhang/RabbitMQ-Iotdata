@@ -26,8 +26,8 @@ public class Censor{
     public Censor(String id, int name, String status, String have_turn_on) {
         this.id = ""+name;
         this.name = name;
-        this.status = "on";
-        this.have_turn_on = "no";
+        this.status = status;
+        this.have_turn_on = have_turn_on;
     }
 
     public String getId() {
