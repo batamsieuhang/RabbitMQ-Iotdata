@@ -61,7 +61,10 @@ const WattChart = () => {
         <>
             <div className="container">
                 <div className="chart">
-                    <Line data={userData} />
+                    <div>
+                        <Line data={userData} />
+                    </div>
+                    <div className="style">Graph showing the power consumption of a plug (W)</div>
                 </div>
 
                 <div className="form">

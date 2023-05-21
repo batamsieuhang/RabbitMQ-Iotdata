@@ -7,16 +7,22 @@ const ConnectionTable = () => {
 
   useEffect(() => {
     fetchData();
+    const interval = setInterval(() => {
+      fetchData();
+    }, 1000); // 1 seconds in milliseconds
+
+    return () => clearInterval(interval);
   }, []);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://192.168.153.135:15672/api/connections`);
-      console.log(response.data)
+      //console.log(response.data)
       setData(response.data);
     } catch (error) {
       console.error(error);
     }
+
   };
 
   const renderTableRows = () => {
@@ -26,15 +32,14 @@ const ConnectionTable = () => {
         <td>{count}</td>
         <td>{item.name}</td>
         <td>{item.node}</td>
-        {/* Thêm các cột khác tùy theo dữ liệu từ API */}
       </tr>
     ));
   };
 
   return (
     <div>
-      <h1>Table Of Connections</h1>
-      <table class="tableStyle">
+      <h1 className="style1">Table Of Connections</h1>
+      <table className="tableStyle1">
         <thead>
           <tr>
             <th>ID</th>
@@ -43,7 +48,7 @@ const ConnectionTable = () => {
           </tr>
         </thead>
         <tbody>
-        {renderTableRows()}
+          {renderTableRows()}
         </tbody>
       </table>
     </div>

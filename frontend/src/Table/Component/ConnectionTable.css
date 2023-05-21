@@ -1,0 +1,21 @@
+.style1 {
+    text-align: center;
+    width: 50%;
+}
+
+.tableStyle1 {
+    border: none;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tableStyle1 th {
+    background-color: #cad8fa;
+    padding: 5px;
+}
+
+.tableStyle1 td {
+    background-color: #f0e7da;
+    padding: 5px;
+}

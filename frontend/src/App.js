@@ -2,16 +2,16 @@ import React from 'react';
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import WattChart from './Chart/Chart';
-import ConnectionTable from './ConnectionTable/ConnectionTable';
+import Table from './Table/Table';
 
 function App() {
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<ConnectionTable />} />
+        <Route path="/" element={<Table />} />
         <Route exact path="/chart" element={<WattChart />} />
-        <Route path="/table" element={<ConnectionTable />} />
+        <Route path="/table" element={<Table />} />
       </Routes>
 
       <div>
