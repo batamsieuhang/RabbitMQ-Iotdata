@@ -29,7 +29,7 @@ const WattChart = () => {
             const currentId = idRef.current;
 
             console.log(id);
-            axios.get(`http://192.168.153.135:8080/api/v1/iotdata/${currentId}`).then((res) => {
+            axios.get(`http://192.168.60.133:8080/api/v1/iotdata/${currentId}`).then((res) => {
                 console.log(res.data)
                 setUserData({
                     labels: res.data.slice(-300).map((item) => item.iotDate),

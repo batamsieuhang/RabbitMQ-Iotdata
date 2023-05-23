@@ -18,7 +18,7 @@ const Table = () => {
     }, []);
 
     const getData = () => {
-        axios.get(`http://192.168.153.135:8080/api/v1/censor`).then((res) => {
+        axios.get(`http://192.168.60.133:8080/api/v1/censor`).then((res) => {
             setExistingCensor(res.data.filter((item) => item.id >= 1 && item.id <= 10).length);
         })
     }
@@ -36,7 +36,7 @@ const Table = () => {
         if (existingCensor < 10) {
 
             try {
-                const response = await axios.post(`http://192.168.153.135:8080/api/v1/censor`, rowData);
+                const response = await axios.post(`http://192.168.60.133:8080/api/v1/censor`, rowData);
                 console.log("Post data:", response.data);
             } catch (error) {
                 console.error("Error:", error);

@@ -16,7 +16,7 @@ const ConnectionTable = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://192.168.153.135:15672/api/connections`);
+      const response = await axios.get(`http://192.168.60.133:15672/api/connections`);
       //console.log(response.data)
       setData(response.data);
     } catch (error) {

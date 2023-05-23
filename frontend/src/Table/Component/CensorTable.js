@@ -15,7 +15,7 @@ const CensorTable = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://192.168.153.135:8080/api/v1/censor`);
+      const response = await axios.get(`http://192.168.60.133:8080/api/v1/censor`);
       setData(response.data.filter((item) => item.id >= 1 && item.id <= 10)
       .slice().sort((a, b) => a.id - b.id));
     } catch (error) {
@@ -25,7 +25,7 @@ const CensorTable = () => {
 
   const handlePostData = async (rowData) => {
     try {
-      const response = await axios.post(`http://192.168.153.135:8080/api/v1/check`, rowData);
+      const response = await axios.post(`http://192.168.60.133:8080/api/v1/check`, rowData);
       console.log("Post data:", response.data);
     } catch (error) {
       console.error("Error:", error);
