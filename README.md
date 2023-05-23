@@ -15,11 +15,6 @@
 
 ## **Danh sách thành viên**
 
-- Đỗ Anh Tú(nhóm trưởng)
-- Hồ Thanh Huyền
-- Vũ Viết Thành
-- Nguyễn Tuấn Hiệp
-- Phan Duy Thắng
 
 | Thành viên  | Công việc  | Đánh giá |
 | :------------ |:---------------:| -----:|
